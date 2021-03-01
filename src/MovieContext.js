@@ -36,8 +36,6 @@ export class MovieListProvider extends React.Component {
         },
       ],
     };
-
-    console.log(this.props);
   }
 
   updateState = () => {
@@ -45,12 +43,8 @@ export class MovieListProvider extends React.Component {
   };
 
   render() {
-    const contextData = {
-      stateData: this.state,
-      stateHandler: this.updateState,
-    };
     return (
-      <Context.Provider value={[contextData]}>
+      <Context.Provider value={[this.state, this.updateState]}>
         {this.props.children}
       </Context.Provider>
     );

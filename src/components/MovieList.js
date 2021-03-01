@@ -6,16 +6,14 @@ export default class MovieList extends Component {
   static contextType = Context;
 
   render() {
+    const [movieList, updateState] = this.context;
+    console.log(movieList.movieList);
     return (
       <div>
         <h1>Test</h1>
-        <React.Fragment>
-          <Context.Consumer>
-            {([stateData, stateHandler]) => {
-              return <p>Inside consumer {console.log(stateData.stateData)}</p>;
-            }}
-          </Context.Consumer>
-        </React.Fragment>
+        {movieList.movieList.map((movie) => {
+          return <Movie name={movie.name} price={movie.price} />;
+        })}
       </div>
     );
   }

@@ -6,10 +6,11 @@ export default class Movie extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <h1>{this.props.movie.name}</h1>
-        <p>{this.props.movie.price}</p>
+        <h1>{this.props.name}</h1>
+        <p>{this.props.price}</p>
       </div>
     );
   }
